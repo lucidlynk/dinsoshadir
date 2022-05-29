@@ -272,5 +272,13 @@ class Kis extends BaseController
         return redirect()->to('kis/usul');
     }
 
+    public function batal($id)
+    {
+        $this->prioritasModel->delete(['file' => $id]);
+        unlink('file/'.$id);
+        session()->setFlashdata('pesan','Permohonan Prioritas usulan dibatalkan');
+        return redirect()->to('/kis/usul');
+    }
+
     
 }
