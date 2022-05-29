@@ -164,7 +164,7 @@ class Kis extends BaseController
             $q = $this->db->query("SELECT DISTINCT berkas,usul_kis.created_at AS pengajuan, COUNT(id_usul) AS jml, username FROM usul_kis INNER JOIN users ON usul_kis.userid=users.id GROUP BY berkas ORDER BY usul_kis.created_at DESC;");
             $data['tampilhapus'] = $q->getResultArray();
             //tampilan datatable
-            $this->builder->select('id_usul,usul_kis.userid as uid,username,noka,kk,nik,nama,pisat,tmp_lahir,tgl_lahir,jk,usul_kis.status as stts,alamat,kd_pos,kecamatan,desa,ket,file,berkas');
+            $this->builder->select('id_usul,usul_kis.userid as uid,username,noka,kk,nik,nama,pisat,tmp_lahir,tgl_lahir,jk,usul_kis.status as stts,alamat,kd_pos,kecamatan,desa,ket,file,berkas,usulid');
             $this->builder->join('users', 'usul_kis.userid = users.id');
             $this->builder->join('prioritas', 'usul_kis.id_usul = prioritas.usulid', 'left');
             $this->builder->where('usul_kis.created_at >=',$tgl_awal);
@@ -175,7 +175,7 @@ class Kis extends BaseController
             $q = $this->db->query("SELECT DISTINCT berkas,usul_kis.created_at AS pengajuan, COUNT(id_usul) AS jml FROM usul_kis INNER JOIN users ON usul_kis.userid=users.id WHERE users.id={$idk} GROUP BY berkas ORDER BY usul_kis.created_at DESC;");
             $data['tampilhapus'] = $q->getResultArray();
             //tampilan datatable
-            $this->builder->select('id_usul,usul_kis.userid as uid,username,noka,kk,nik,nama,pisat,tmp_lahir,tgl_lahir,jk,usul_kis.status as stts,alamat,kd_pos,kecamatan,desa,ket,file,berkas');
+            $this->builder->select('id_usul,usul_kis.userid as uid,username,noka,kk,nik,nama,pisat,tmp_lahir,tgl_lahir,jk,usul_kis.status as stts,alamat,kd_pos,kecamatan,desa,ket,file,berkas,usulid');
             $this->builder->join('users', 'usul_kis.userid = users.id');
             $this->builder->join('prioritas', 'usul_kis.id_usul = prioritas.usulid', 'left');
             $this->builder->where('usul_kis.created_at >=',$tgl_awal);
@@ -274,8 +274,10 @@ class Kis extends BaseController
 
     public function batal($id)
     {
-        $this->prioritasModel->delete(['file' => $id]);
-        unlink('file/'.$id);
+        
+        $file=$this->prioritasModel->getPrioritas($id);
+        $this->prioritasModel->delete(['id' => $file['id']]);
+        unlink('file/'.$file['file']);
         session()->setFlashdata('pesan','Permohonan Prioritas usulan dibatalkan');
         return redirect()->to('/kis/usul');
     }

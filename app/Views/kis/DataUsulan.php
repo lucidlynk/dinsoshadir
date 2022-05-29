@@ -171,7 +171,7 @@
                                                ><i class="fas fa-bell"></i></button>
                                                <?php endif;?>
                                                <?php if($d->file):?>
-                                               <a href="/kis/batal/<?= $d->file;?>"><button class="btn btn-danger"><i class="fas fa-bell-slash"></i></button></a>
+                                               <a href="/kis/batal/<?= $d->usulid;?>"><button class="btn btn-danger"><i class="fas fa-bell-slash"></i></button></a>
                                                <?php endif;?>
                                                <a href="/file/<?= $d->berkas;?>" onclick="window.open(this.href,'_blank');return false;" terget="_blank"><button class="btn btn-warning"><i class="fas fa-file-pdf"></i></button></a>
                                                <a href="/kis/delete/<?= $d->id_usul;?>" class="tombol-hapus"><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a>

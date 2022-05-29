@@ -41,4 +41,12 @@ class PrioritasModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getPrioritas($id=false)
+    {
+        if($id == false){
+            return $this->findAll();
+        }
+        return $this->where(['usulid'=>$id])->first();
+    }
 }
