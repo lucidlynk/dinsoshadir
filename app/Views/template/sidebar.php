@@ -77,7 +77,8 @@
             <!-- Logout -->
             <li class="nav-item">
                 <a class="nav-link" href="/pmks/input">
-                <i class="fas fa-wheelchair"></i>
+                <!-- <i class="fas fa-wheelchair"></i> -->
+                <i class="fas fa-sign-out-alt"></i>
                     <span>PPKS</span></a>
             </li>
 
