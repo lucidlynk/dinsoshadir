@@ -54,13 +54,20 @@
                             echo form_open_multipart('kis/import');
                             ?>
                             <?= csrf_field(); ?>
+                            //creat combobox with boostra[select 3]
+                            <div class="form-group row">
+                                <label for="ppks" class="col-sm-2 col-form-label">Pilih Jenis PPKS</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" name="ppks" id="ppks">
+                                        <?php foreach($pmks as $t): ?>
+                                            <option value="<?= $t['id_pmks']; ?>"><?= $t['nama_pmks']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="mb-3 col-3">
                                 <label for="formFile" class="form-label">Import File Excel</label>
                                 <input class="form-control" type="file" name="file_excel" ">
-                            </div>
-                            <div class="mb-3 col-3">
-                                <label for="formFile" class="form-label">Lampiran Berkas</label>
-                                <input class="form-control" type="file" name="file" ">
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-success">Proses Import</button>
