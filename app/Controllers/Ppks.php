@@ -19,10 +19,9 @@ class Ppks extends BaseController
     public function index()
     {
         $data=[
-            'tittle' => 'PPKS'
+            'tittle' => 'PPKS',
+            'pmks' => $this->pmksModel->getPmks();
         ];
-        $pmks=$this->pmksModel->getPmks();
-        dd($pmks);
         return view('ppks/index',$data);
     }
 
