@@ -2,21 +2,18 @@
 
 namespace App\Controllers;
 
-use App\Models\ApbdModel;
-use App\Models\UsulkisModel;
-use App\Models\PrioritasModel;
+
+use App\Models\PmksModel;
 
 class Ppks extends BaseController
 {
-    protected $apbdModel,$db, $builder;
+    protected $db, $builder,$pmksModel;
     public function __construct()
     {
         helper('form');
-        $this->apbdModel= new ApbdModel();
-        $this->usulkisModel= new UsulkisModel();
-        $this->prioritasModel= new PrioritasModel();
+        $this->pmksModel = new PmksModel();
         $this->db      = \Config\Database::connect();
-        $this->builder = $this->db->table('usul_kis');
+        $this->builder = $this->db->table('pmks');
     }
 
     public function index()
@@ -24,6 +21,8 @@ class Ppks extends BaseController
         $data=[
             'tittle' => 'PPKS'
         ];
+        $pmks=$this->pmksModel->getPmks();
+        dd($pmks);
         return view('ppks/index',$data);
     }
 
