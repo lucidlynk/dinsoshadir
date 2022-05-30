@@ -32,7 +32,7 @@
                         <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Import Usulan Data Kepsertaan KIS APBD</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Import Data Pemerlu Pelayanan Kesejahteraan Sosial </h6>
                         </div>
                         <div class="card-body">
                             <?php if (!empty(session()->getFlashdata('error'))) { ?>
@@ -51,13 +51,13 @@
                             <?php endif; ?>
                             <div class="flash-data" data-flashdata="<?= $flash??""; ?>"></div>
                             <?php 
-                            echo form_open_multipart('kis/import');
+                            echo form_open_multipart('ppks/import');
                             ?>
                             <?= csrf_field(); ?>
-                            //creat combobox with boostra[select 3]
+                            <!-- //creat combobox with boostra[select 3] -->
                             <div class="form-group row">
                                 <label for="ppks" class="col-sm-2 col-form-label">Pilih Jenis PPKS</label>
-                                <div class="col-sm-6">
+                                <div class="mb-3 col-6">
                                     <select class="form-control" name="ppks" id="ppks">
                                         <?php foreach($pmks as $t): ?>
                                             <option value="<?= $t['id_pmks']; ?>"><?= $t['nama_pmks']; ?></option>
@@ -65,9 +65,25 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="mb-3 col-3">
-                                <label for="formFile" class="form-label">Import File Excel</label>
+                            <!-- creat combobox with boostrap [select year] -->
+                            <div class="form-group row">
+                                <label for="tahun" class="col-sm-2 col-form-label">Tahun</label>
+                                <div class="mb-3 col-3">
+                                    <select class="form-control" name="tahun" id="tahun">
+                                        <?php $tahun = date('Y'); ?>
+                                        <option value="<?= $tahun; ?>"><?= $tahun; ?></option>
+                                        <?php for($i = $tahun - 1; $i >= $tahun - 10; $i--): ?>
+                                            <option value="<?= $i; ?>"><?= $i; ?></option>
+                                        <?php endfor; ?>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="formFile" class="col-sm-2 col-form-label">Import File Excel</label>
+                                <div class="mb-3 col-6">
                                 <input class="form-control" type="file" name="file_excel" ">
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-success">Proses Import</button>
