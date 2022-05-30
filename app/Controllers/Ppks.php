@@ -20,7 +20,7 @@ class Ppks extends BaseController
     {
         $data=[
             'tittle' => 'PPKS',
-            'pmks' => $this->pmksModel->getPmks();
+            'pmks' => $this->pmksModel->getPmks()
         ];
         return view('ppks/index',$data);
     }
