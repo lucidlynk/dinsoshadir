@@ -20,7 +20,8 @@ class Ppks extends BaseController
     {
         $data=[
             'tittle' => 'PPKS',
-            'pmks' => $this->pmksModel->getPmks()
+            'pmks' => $this->pmksModel->getPmks(),
+            'validation'=> \Config\Services::validation() //panggil validation
         ];
         return view('ppks/index',$data);
     }
