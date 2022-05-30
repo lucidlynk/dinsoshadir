@@ -11,6 +11,7 @@
                     <div class="col-lg">
                         <div class="p-5">
                             <div class="text-center">
+                                <img src="/img/buleleng.png" width="150px" alt="">
                                 <h1 class="h4 text-gray-900 mb-4"><?=lang('Auth.register')?></h1>
                             </div>
                             <?= view('Myth\Auth\Views\_message_block') ?>
