@@ -16,6 +16,11 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <img src="/img/buleleng.png" width="150px" alt="">
+                                        <!-- <h3 class="mt-3">Puskesos CGT</h3> -->
+                                        <!-- creat text with boostrap h3 bold  -->
+                                        <h3 class="mt-3">
+                                            <strong>Puskesos CGT</strong>
+                                        </h3>
                                         <h1 class="h4 text-gray-900 mb-4 mt-3"><b><?=lang('Auth.loginTitle')?></b></h1>
                                     </div>
                                     <?= view('Myth\Auth\Views\_message_block') ?>
