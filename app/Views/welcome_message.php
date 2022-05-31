@@ -164,27 +164,27 @@ chart.render();
       <div class="container">
         <div class="row text-center">
           <div class="col-md-2">
-            <img src="images/kis2.png" style="height: 100px" alt="" />
+            <img src="/dhasa/images/kis2.png" style="height: 100px" alt="" />
             <h4>143.119 Jiwa</h4>
             <p>Penerima Bantuan Iuran (APBD)</p>
           </div>
           <div class="col-md-2">
-            <img src="images/pbi.png" style="height: 100px" alt="" />
+            <img src="/dhasa/images/pbi.png" style="height: 100px" alt="" />
             <h4>218.362 Jiwa</h4>
             <p>Penerima Bantuan Iuran (APBN)</p>
           </div>
           <div class="col-md-2">
-            <img src="images/bpnt.png" style="height: 100px" alt="" />
+            <img src="/dhasa/images/bpnt.png" style="height: 100px" alt="" />
             <h4>43.616 Keluarga</h4>
             <p>Program Sembako</p>
           </div>
           <div class="col-md-2">
-            <img src="images/pkh.png" style="height: 100px" alt="" />
+            <img src="/dhasa//pkh.png" style="height: 100px" alt="" />
             <h4>29.791 Keluarga</h4>
             <p>Program Keluarga Harapan</p>
           </div>
           <div class="col-md-4">
-            <img src="images/dtks.png" style="height: 100px" alt="" />
+            <img src="/dhasa/images/dtks.png" style="height: 100px" alt="" />
             <h4>355.558 Jiwa</h4>
             <h4>114.123 Keluarga</h4>
             <p>Data Terpadu Kesejahteraan Sosial</p>
@@ -354,8 +354,8 @@ chart.render();
           <div class="col-md-4 col-sm-6">
             <!-- MENU THUMB -->
             <div class="menu-thumb">
-              <a href="images/menu-image1.jpg" class="image-popup" title="Home Visit warga sakit tumor dan Anak Yatim">
-                <img src="images/menu-image1.jpg" class="img-responsive" alt="" />
+              <a href="/dhasa/images/menu-image1.jpg" class="image-popup" title="Home Visit warga sakit tumor dan Anak Yatim">
+                <img src="/dhasa/images/menu-image1.jpg" class="img-responsive" alt="" />
 
                 <div class="menu-info">
                   <div class="menu-item">
@@ -373,8 +373,8 @@ chart.render();
           <div class="col-md-4 col-sm-6">
             <!-- MENU THUMB -->
             <div class="menu-thumb">
-              <a href="images/menu-image2.jpg" class="image-popup" title="Penguburan Mayat Terlantar">
-                <img src="images/menu-image2.jpg" class="img-responsive" alt="" />
+              <a href="/dhasa/images/menu-image2.jpg" class="image-popup" title="Penguburan Mayat Terlantar">
+                <img src="/dhasa/images/menu-image2.jpg" class="img-responsive" alt="" />
 
                 <div class="menu-info">
                   <div class="menu-item">
@@ -392,8 +392,8 @@ chart.render();
           <div class="col-md-4 col-sm-6">
             <!-- MENU THUMB -->
             <div class="menu-thumb">
-              <a href="images/menu-image3.jpg" class="image-popup" title="Home Visit Sakit Struk">
-                <img src="images/menu-image3.jpg" class="img-responsive" alt="" />
+              <a href="/dhasa/images/menu-image3.jpg" class="image-popup" title="Home Visit Sakit Struk">
+                <img src="/dhasa/images/menu-image3.jpg" class="img-responsive" alt="" />
 
                 <div class="menu-info">
                   <div class="menu-item">
@@ -411,8 +411,8 @@ chart.render();
           <div class="col-md-4 col-sm-6">
             <!-- MENU THUMB -->
             <div class="menu-thumb">
-              <a href="images/menu-image4.jpg" class="image-popup" title="Home Visit Anak Piatu Dampak Covid">
-                <img src="images/menu-image4.jpg" class="img-responsive" alt="" />
+              <a href="/dhasa/images/menu-image4.jpg" class="image-popup" title="Home Visit Anak Piatu Dampak Covid">
+                <img src="/dhasa/images/menu-image4.jpg" class="img-responsive" alt="" />
 
                 <div class="menu-info">
                   <div class="menu-item">
@@ -430,8 +430,8 @@ chart.render();
           <div class="col-md-4 col-sm-6">
             <!-- MENU THUMB -->
             <div class="menu-thumb">
-              <a href="images/menu-image5.jpg" class="image-popup" title="Penanganan Pasca Bencana Puting Beliung">
-                <img src="images/menu-image5.jpg" class="img-responsive" alt="" />
+              <a href="/dhasa/images/menu-image5.jpg" class="image-popup" title="Penanganan Pasca Bencana Puting Beliung">
+                <img src="/dhasa/images/menu-image5.jpg" class="img-responsive" alt="" />
 
                 <div class="menu-info">
                   <div class="menu-item">
@@ -449,8 +449,8 @@ chart.render();
           <div class="col-md-4 col-sm-6">
             <!-- MENU THUMB -->
             <div class="menu-thumb">
-              <a href="images/menu-image6.jpg" class="image-popup" title="Home Visit Lansia">
-                <img src="images/menu-image6.jpg" class="img-responsive" alt="" />
+              <a href="/dhasa/images/menu-image6.jpg" class="image-popup" title="Home Visit Lansia">
+                <img src="/dhasa/images/menu-image6.jpg" class="img-responsive" alt="" />
 
                 <div class="menu-info">
                   <div class="menu-item">
