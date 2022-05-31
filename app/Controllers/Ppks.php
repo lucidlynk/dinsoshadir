@@ -3,7 +3,7 @@
 namespace App\Controllers;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-
+use App\Models\PpksModel;
 use App\Models\PmksModel;
 use Kint\Renderer\Renderer;
 
@@ -14,6 +14,7 @@ class Ppks extends BaseController
     {
         helper('form');
         $this->pmksModel = new PmksModel();
+        $this->ppksModel = new PpksModel();
         $this->db      = \Config\Database::connect();
         $this->builder = $this->db->table('pmks');
     }
@@ -83,20 +84,14 @@ class Ppks extends BaseController
             }
             
             $data = [
-                'noka' => $excel['1'],
-                'kk' => $excel['2'],
-                'nik' => $excel['3'],
-                'nama'=> $excel['4'],
-                'pisat' => $excel['5'],
-                'tmp_lahir' => $excel['6'],
-                'tgl_lahir' => $excel['7'],
-                'jk' => $excel['8'],
-                'status' => $excel['9'],
-                'alamat' => $excel['10'],
-                'kd_pos' => $excel['11'],
-                'kecamatan' => $excel['12'],
-                'desa' => $excel['13'],
-                'userid' => user()->id,
+                'nik' => $excel['1'],
+                'nama' => $excel['2'],
+                'tmp_lahir' => $excel['3'],
+                'tgl_lahir'=> $excel['4'],
+                'jk' => $excel['5'],
+                'id_pmks' => $this->request->getPost('id_pmks'),
+                'data_user' => user()->id,
+                'tahun' => $this->request->getPost('tahun')
             ];
             if($data['nik']==''){
                 continue;
