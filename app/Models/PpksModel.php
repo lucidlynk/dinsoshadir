@@ -7,15 +7,15 @@ use CodeIgniter\Model;
 class PpksModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'id_ppks';
-    protected $primaryKey       = 'id';
+    protected $table            = 'ppks';
+    protected $primaryKey       = 'id_ppks';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'nik','nama','tmp_lahir','tgl_lahir','jk'
+        'nik','nama','tmp_lahir','tgl_lahir','jk','alamat','kecamatan','desa','id_pmks','data_user','tahun'
     ];
 
     // Dates
@@ -50,4 +50,8 @@ class PpksModel extends Model
         }
         return $this->where(['id'=>$id])->first();
     }
+    public function cekdata($nik){
+        return $this->db->table('ppks')->where('nik',$nik)
+           ->get()->getRowArray();
+   }
 }

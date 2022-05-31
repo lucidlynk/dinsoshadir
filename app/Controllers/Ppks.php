@@ -74,11 +74,11 @@ class Ppks extends BaseController
             }
 
             //skip jika ada data yang sama
-            $nik = $this->usulkisModel->cekdata($excel['3']);
+            $nik = $this->ppksModel->cekdata($excel['1']);
             if (empty($nik)) {
                 $nik['nik']='';
             }
-            if ($excel['3'] == $nik['nik']) {
+            if ($excel['1'] == $nik['nik']) {
                 $dataGagal++;         
                 continue;
             }
@@ -89,20 +89,23 @@ class Ppks extends BaseController
                 'tmp_lahir' => $excel['3'],
                 'tgl_lahir'=> $excel['4'],
                 'jk' => $excel['5'],
-                'id_pmks' => $this->request->getPost('id_pmks'),
+                'alamat' => $excel['6'],
+                'kecamatan' => $excel['7'],
+                'desa' => $excel['8'],
+                'id_pmks' => $this->request->getPost('ppks'),
                 'data_user' => user()->id,
                 'tahun' => $this->request->getPost('tahun')
             ];
             if($data['nik']==''){
                 continue;
             }else{
-                $this->usulkisModel->save($data);
+                $this->ppksModel->save($data);
                 $dataBerhasil++;
             }
             
         }
         session()->setFlashdata('pesan',$dataBerhasil.' Data berhasil ditambahkan');
-        return redirect()->to('kis/input');
+        return redirect()->to('ppks/index');
     }
 
 
