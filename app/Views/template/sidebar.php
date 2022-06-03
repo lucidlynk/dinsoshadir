@@ -75,10 +75,28 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Logout -->
-            <li class="nav-item">
-                <a class="nav-link" href="/pmks/input">
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('/ppks'); ?>">
                 <i class="fas fa-wheelchair"></i>
                 <span>PPKS</span></a>
+            </li> -->
+            <!-- Divider -->
+            <!-- <hr class="sidebar-divider"> -->
+            <!-- create Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>PPKS</span>
+                </a>
+                <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">PPKS:</h6>
+                        <a class="collapse-item" href="/ppm/">Data PPKS</a>
+                        <a class="collapse-item" href="<?= base_url('/ppks'); ?>">Data Usulan</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->

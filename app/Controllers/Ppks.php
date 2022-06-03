@@ -152,4 +152,104 @@ class Ppks extends BaseController
         $writer->save('php://output');
         redirect()->to('kis/input');
     }
+
+    
+    // create function to export database to pdf with mpdf
+    // public function export_pdf()
+    // {
+    //     $data = $this->usulkisModel->findAll();
+    //     $mpdf = new \Mpdf\Mpdf();
+    //     $html = '<h3>Data Usulan KIS</h3>
+    //     <table border="1" cellpadding="5" cellspacing="0">
+    //         <tr>
+    //             <th>No</th>
+    //             <th>Noka</th>
+    //             <th>Kk</th>
+    //             <th>Nik</th>
+    //             <th>Nama</th>
+    //             <th>Pisat</th>
+    //             <th>Tmp_lahir</th>
+    //             <th>Tgl_lahir</th>
+    //             <th>Jk</th>
+    //             <th>Status</th>
+    //             <th>Alamat</th>
+    //             <th>Kd_pos</th>
+    //             <th>Kecamatan</th>
+    //             <th>Desa</th>
+    //         </tr>';
+    //     $i=0;
+    //     foreach ($data as $d) {
+    //         $i++;
+    //         $html.='<tr>
+    //             <td>'.$i.'</td>
+    //             <td>'.$d['noka'].'</td>
+    //             <td>'.$d['kk'].'</td>
+    //             <td>'.$d['nik'].'</td>
+    //             <td>'.$d['nama'].'</td>
+    //             <td>'.$d['pisat'].'</td>
+    //             <td>'.$d['tmp_lahir'].'</td>
+    //             <td>'.$d['tgl_lahir'].'</td>
+    //             <td>'.$d['jk'].'</td>
+    //             <td>'.$d['status'].'</td>
+    //             <td>'.$d['alamat'].'</td>
+    //             <td>'.$d['kd_pos'].'</td>
+    //             <td>'.$d['kecamatan'].'</td>
+    //             <td>'.$d['desa'].'</td>
+    //         </tr>';
+    //     }
+    //     $html.='</table>';
+    //     $mpdf->WriteHTML($html);
+    //     $mpdf->Output('Data_usul_kis_'.date('Y-m-d_H-i-s').'.pdf', 'I');
+    // }
+
+    
+    // create function to export database to pdf with dompdf
+    // public function export_pdf()
+    // {
+    //     $data = $this->usulkisModel->findAll();
+    //     $html = '<h3>Data Usulan KIS</h3>
+    //     <table border="1" cellpadding="5" cellspacing="0">
+    //         <tr>
+    //             <th>No</th>
+    //             <th>Noka</th>
+    //             <th>Kk</th>
+    //             <th>Nik</th>
+    //             <th>Nama</th>
+    //             <th>Pisat</th>
+    //             <th>Tmp_lahir</th>
+    //             <th>Tgl_lahir</th>
+    //             <th>Jk</th>
+    //             <th>Status</th>
+    //             <th>Alamat</th>
+    //             <th>Kd_pos</th>
+    //             <th>Kecamatan</th>
+    //             <th>Desa</th>
+    //         </tr>';
+    //     $i=0;
+    //     foreach ($data as $d) {
+    //         $i++;
+    //         $html.='<tr>
+    //             <td>'.$i.'</td>
+    //             <td>'.$d['noka'].'</td>
+    //             <td>'.$d['kk'].'</td>
+    //             <td>'.$d['nik'].'</td>
+    //             <td>'.$d['nama'].'</td>
+    //             <td>'.$d['pisat'].'</td>
+    //             <td>'.$d['tmp_lahir'].'</td>
+    //             <td>'.$d['tgl_lahir'].'</td>
+    //             <td>'.$d['jk'].'</td>
+    //             <td>'.$d['status'].'</td>
+    //             <td>'.$d['alamat'].'</td>
+    //             <td>'.$d['kd_pos'].'</td>
+    //             <td>'.$d['kecamatan'].'</td>
+    //             <td>'.$d['desa'].'</td>
+    //         </tr>';
+    //     }
+    //     $html.='</table>';
+    //     $dompdf = new Dompdf();
+    //     $dompdf->loadHtml($html);
+    //     $dompdf->setPaper('A4', 'landscape');
+    //     $dompdf->render();
+    //     $dompdf->stream('Data_usul_kis_'.date('Y-m-d_H-i-s').'.pdf', array('Attachment' => 0));
+    // }
 }
