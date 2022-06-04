@@ -329,5 +329,11 @@ class Ppks extends BaseController
         session()->setFlashdata('pesan','Data berhasil diubah');
         return redirect()->to('/ppks/data');
     }
+    public function delete($id)
+    {
+        $this->builder->delete(['id_ppks' => $id]);
+        session()->setFlashdata('pesan','Data berhasil dihapus');
+        return redirect()->to('/ppks/data');
+    }
 
 }
