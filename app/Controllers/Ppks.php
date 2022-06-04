@@ -132,7 +132,7 @@ class Ppks extends BaseController
         $i = 2;
         foreach ($data as $d) {
             $sheet->setCellValue('A' . $i, $no);
-            $sheet->setCellValue('B' . $i, $d['nik']);
+            $sheet->setCellValue('B' . $i, "'".$d['nik']);
             $sheet->setCellValue('C' . $i, $d['nama']);
             $sheet->setCellValue('D' . $i, $d['tmp_lahir']);
             $sheet->setCellValue('E' . $i, $d['tgl_lahir']);
