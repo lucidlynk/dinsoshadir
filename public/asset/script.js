@@ -15,6 +15,24 @@ $(document).on("click", "#btn-edit", function () {
   $(".modal-body #desa").val($(this).data("desa"));
 });
 
+$(document).on("click", "#btn-ppks", function () {
+  $(".modal-body #id").val($(this).data("id"));
+  $(".modal-body #noka").val($(this).data("noka"));
+  $(".modal-body #kk").val($(this).data("kk"));
+  $(".modal-body #nik").val($(this).data("nik"));
+  $(".modal-body #nama").val($(this).data("nama"));
+  $(".modal-body #pisat").val($(this).data("pisat"));
+  $(".modal-body #tmp_lahir").val($(this).data("tmp_lahir"));
+  $(".modal-body #tgl_lahir").val($(this).data("tgl_lahir"));
+  $(".modal-body #jk").val($(this).data("jk"));
+  $(".modal-body #stts").val($(this).data("stts"));
+  $(".modal-body #alamat").val($(this).data("alamat"));
+  $(".modal-body #kd_pos").val($(this).data("kd_pos"));
+  $(".modal-body #kecamatan").val($(this).data("kecamatan"));
+  $(".modal-body #desa").val($(this).data("desa"));
+  $(".modal-body #pmks").val($(this).data("pmks"));
+});
+
 const flashData = $(".flash-data").data("flashdata");
 if (flashData) {
   Swal.fire({

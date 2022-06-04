@@ -16,7 +16,7 @@ class Ppks extends BaseController
         $this->pmksModel = new PmksModel();
         $this->ppksModel = new PpksModel();
         $this->db      = \Config\Database::connect();
-        $this->builder = $this->db->table('pmks');
+        $this->builder = $this->db->table('ppks');
     }
 
     public function index()
@@ -270,6 +270,64 @@ class Ppks extends BaseController
             'validation'=> \Config\Services::validation() 
         ];
         return view('ppks/data',$data);
+    }
+
+    public function tampil()
+    {
+        $ppks=$this->request->getVar('ppks');
+        $data=[
+            'tittle' => 'Usulan KIS',
+            'tampil' => $this->pmksModel->findAll()
+        ];
+        
+        if ($ppks) {
+                
+        if (user()->id==8) {
+            //fungsi untuk deleteall berdasarkan lampiran berkas
+            // $q = $this->db->query("SELECT DISTINCT berkas,usul_kis.created_at AS pengajuan, COUNT(id_usul) AS jml, username FROM usul_kis INNER JOIN users ON usul_kis.userid=users.id GROUP BY berkas ORDER BY usul_kis.created_at DESC;");
+            // $data['tampilhapus'] = $q->getResultArray();
+            //tampilan datatable
+            $this->builder->select('id_ppks,nik,nama,tmp_lahir,tgl_lahir,jk,alamat,kecamatan,desa,nama_pmks,username,tahun');
+            $this->builder->join('users', 'ppks.data_user = users.id');
+            $this->builder->join('pmks', 'ppks.id_pmks = pmks.id_pmks');
+            if ($ppks!=0) {
+                $this->builder->where('ppks.id_pmks',$ppks);
+            }
+            
+        }else{
+            //fungsi untuk deleteall berdasarkan lampiran berkas
+            // $idk=user()->id;
+            // $q = $this->db->query("SELECT DISTINCT berkas,usul_kis.created_at AS pengajuan, COUNT(id_usul) AS jml FROM usul_kis INNER JOIN users ON usul_kis.userid=users.id WHERE users.id={$idk} GROUP BY berkas ORDER BY usul_kis.created_at DESC;");
+            // $data['tampilhapus'] = $q->getResultArray();
+            //tampilan datatable
+            $this->builder->select('id_ppks,nik,nama,tmp_lahir,tgl_lahir,jk,alamat,kecamatan,desa,nama_pmks,username,tahun');
+            $this->builder->join('users', 'ppks.data_user = users.id');
+            $this->builder->join('pmks', 'ppks.id_pmks = pmks.id_pmks');
+            if ($ppks!=0) {
+                $this->builder->where('ppks.id_pmks',$ppks);
+            }
+            $this->builder->where('ppks.data_user',user()->id);
+        }
+        $query = $this->builder->get();
+        $data['tampildata']= $query->getResult();
+        }else {
+            $data['tampildata']= '';
+        }
+        return view('ppks/data',$data);
+    }
+
+    public function update() {
+        // $id= $this->request->getPost('tgl_lahir');
+        // dd($id);
+        $this->ppksModel->save([
+            'id_ppks' => $this->request->getPost('id'),
+            'nik' => $this->request->getPost('nik'),
+            'nama' => $this->request->getPost('nama'),
+            'tmp_lahir' => $this->request->getPost('tmp_lahir'),
+            'tgl_lahir' => $this->request->getPost('tgl_lahir'),
+        ]); 
+        session()->setFlashdata('pesan','Data berhasil diubah');
+        return redirect()->to('/ppks/data');
     }
 
 }
