@@ -93,7 +93,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">PPKS:</h6>
-                        <a class="collapse-item" href="/ppm/">Data PPKS</a>
+                        <a class="collapse-item" href="/ppks/data/">Data PPKS</a>
                         <a class="collapse-item" href="<?= base_url('/ppks'); ?>">Data Usulan</a>
                     </div>
                 </div>

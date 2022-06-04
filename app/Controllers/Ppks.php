@@ -202,7 +202,7 @@ class Ppks extends BaseController
     //     $mpdf->Output('Data_usul_kis_'.date('Y-m-d_H-i-s').'.pdf', 'I');
     // }
 
-    
+
     // create function to export database to pdf with dompdf
     // public function export_pdf()
     // {
@@ -252,4 +252,24 @@ class Ppks extends BaseController
     //     $dompdf->render();
     //     $dompdf->stream('Data_usul_kis_'.date('Y-m-d_H-i-s').'.pdf', array('Attachment' => 0));
     // }
+
+    //create function menu sidebar active with uri segment
+    // public function menu_aktif($uri)
+    // {
+    //     $uri = explode('/', $uri);
+    //     $uri = end($uri);
+    //     return $uri;
+    // }
+
+    public function data()
+    {
+        $data=[
+            'tittle' => 'Data PPKS',
+            'tampildata' => '',
+            'tampil' => $this->pmksModel->getPmks(),
+            'validation'=> \Config\Services::validation() 
+        ];
+        return view('ppks/data',$data);
+    }
+
 }
