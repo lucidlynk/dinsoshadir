@@ -47,4 +47,12 @@ class PmksModel extends Model
         }
         return $this->where(['id_pmks'=>$id])->first();
     }
+
+    public function getPmksByRekap()
+    {
+        $this->db      = \Config\Database::connect();
+        $q = $this->db->query("SELECT nama_pmks,(SELECT COUNT(nama) FROM ppks WHERE ppks.id_pmks=pmks.id_pmks) AS jumlah FROM pmks LEFT JOIN ppks ON ppks.id_pmks=pmks.id_pmks;");
+        $rekap = $q->getResultArray();
+        return $rekap;
+    }
 }

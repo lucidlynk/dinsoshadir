@@ -37,6 +37,14 @@ $routes->get('/dashboard', 'dashboard::index',['filter'=>'role:admin,user']);
 $routes->get('/dashboard/index', 'dashboard::index',['filter'=>'role:admin,user']);
 $routes->get('/adm', 'Adm::index',['filter'=>'role:admin']);
 $routes->get('/adm/index', 'Adm::index',['filter'=>'role:admin']);
+// create routes group for kis
+$routes->group('kis',['filter' => 'role:admin,user'], function($routes) {
+    $routes->get('/', 'Kis::index');
+    $routes->get('input', 'Kis::input');
+    $routes->get('usul', 'Kis::usul');
+    $routes->get('cek_usul', 'Kis::cek_usul');
+});
+
 
 /*
  * --------------------------------------------------------------------

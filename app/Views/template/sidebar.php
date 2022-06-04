@@ -95,6 +95,7 @@
                         <h6 class="collapse-header">PPKS:</h6>
                         <a class="collapse-item" href="/ppks/data/">Data PPKS</a>
                         <a class="collapse-item" href="<?= base_url('/ppks'); ?>">Data Usulan</a>
+                        <a class="collapse-item" href="<?= base_url('/ppks/rekap'); ?>">Rekap Data PPKS</a>
                     </div>
                 </div>
             </li>

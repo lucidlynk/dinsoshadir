@@ -336,4 +336,14 @@ class Ppks extends BaseController
         return redirect()->to('/ppks/data');
     }
 
+    public function rekap()
+    {
+        $data=[
+            'tittle' => 'Rekap Data PPKS',
+            'tampildata' => $this->pmksModel->getPmksByRekap(),
+            'validation'=> \Config\Services::validation() 
+        ];
+        return view('ppks/rekap',$data);
+    }
+
 }
