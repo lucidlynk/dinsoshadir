@@ -115,42 +115,41 @@ class Ppks extends BaseController
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
         $sheet->setCellValue('A1', 'No');
-        $sheet->setCellValue('B1', 'Noka');
-        $sheet->setCellValue('C1', 'Kk');
-        $sheet->setCellValue('D1', 'Nik');
-        $sheet->setCellValue('E1', 'Nama');
-        $sheet->setCellValue('F1', 'Pisat');
-        $sheet->setCellValue('G1', 'Tmp_lahir');
-        $sheet->setCellValue('H1', 'Tgl_lahir');
-        $sheet->setCellValue('I1', 'Jk');
-        $sheet->setCellValue('J1', 'Status');
-        $sheet->setCellValue('K1', 'Alamat');
-        $sheet->setCellValue('L1', 'Kd_pos');
-        $sheet->setCellValue('M1', 'Kecamatan');
-        $sheet->setCellValue('N1', 'Desa');
+        $sheet->setCellValue('B1', 'Nik');
+        $sheet->setCellValue('C1', 'Nama');
+        $sheet->setCellValue('D1', 'Tmp_lahir');
+        $sheet->setCellValue('E1', 'Tgl_lahir');
+        $sheet->setCellValue('F1', 'Jenis Kelamin');
+        $sheet->setCellValue('G1', 'Alamat');
+        $sheet->setCellValue('H1', 'Kecamatan');
+        $sheet->setCellValue('I1', 'Desa');
+        $sheet->setCellValue('J1', 'Jenis PPKS');
 
-        $sheet->getStyle('A1:N1')->getFont()->setBold(true);
+        $sheet->getStyle('A1:J1')->getFont()->setBold(true);
 
-        $data = $this->usulkisModel->findAll();
+        $data = $this->pmksModel->getDownload();
         $no = 1;
         $i = 2;
         foreach ($data as $d) {
             $sheet->setCellValue('A' . $i, $no);
-            $sheet->setCellValue('B' . $i, $d['noka']);
-            $sheet->setCellValue('C' . $i, $d['kk']);
-            $sheet->setCellValue('D' . $i, $d['nik']);
-            $sheet->setCellValue('E' . $i, $d['nama']);
-            $sheet->setCellValue('F' . $i, $d['pisat']);
-            $sheet->setCellValue('G' . $i, $d['tmp_lahir']);
+            $sheet->setCellValue('B' . $i, $d['nik']);
+            $sheet->setCellValue('C' . $i, $d['nama']);
+            $sheet->setCellValue('D' . $i, $d['tmp_lahir']);
+            $sheet->setCellValue('E' . $i, $d['tgl_lahir']);
+            $sheet->setCellValue('F' . $i, $d['jk']);
+            $sheet->setCellValue('G' . $i, $d['alamat']);
+            $sheet->setCellValue('H' . $i, $d['kecamatan']);
+            $sheet->setCellValue('I' . $i, $d['desa']);
+            $sheet->setCellValue('J' . $i, $d['nama_pmks']);
             $i++;
         }
         $writer = new Xlsx($spreadsheet);
-        $filename = 'Data_usul_kis_'.date('Y-m-d_H-i-s').'.xlsx';
+        $filename = 'Data_ppks'.date('Y-m-d_H-i-s').'.xlsx';
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment;filename="'. $filename .'"');
         header('Cache-Control: max-age=0');
         $writer->save('php://output');
-        redirect()->to('kis/input');
+        redirect()->to('ppks/rekap');
     }
 
     

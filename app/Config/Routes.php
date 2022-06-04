@@ -44,6 +44,13 @@ $routes->group('kis',['filter' => 'role:admin,user'], function($routes) {
     $routes->get('usul', 'Kis::usul');
     $routes->get('cek_usul', 'Kis::cek_usul');
 });
+// create routes group for ppks
+$routes->group('ppks',['filter' => 'role:admin,user'], function($routes) {
+    $routes->get('/', 'Ppks::index');
+    $routes->get('data', 'Ppks::data');
+    $routes->get('tampil', 'Ppks::tampil');
+    $routes->get('rekap', 'Ppks::rekap');
+});
 
 
 /*
