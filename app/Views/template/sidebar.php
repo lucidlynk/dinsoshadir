@@ -105,11 +105,15 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Logout -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="/logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span></a>
-            </li>
+            </li> -->
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
             
 
         </ul>
