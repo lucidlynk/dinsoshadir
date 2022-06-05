@@ -19,12 +19,12 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Info</h6>
                                 </div>
                                 <div class="card-body">
-                                    <li>Pengajuan KIS paling lambar tgl 15 setiap bulan</li>
+                                    <li>Pengajuan PPKS paling lambar bulan Oktober setiap tahunnya</li>
                                     <li>Import Data Excel sesuai format yang ada</li>
-                                    <li>Lampiran berupa file PDF dengan ketentuan (Surat Keterangan Perbekel / Lurah, Pertanggung jawaban Perbekel / Lurah)</li>
+                                    <!-- <li>Lampiran berupa file PDF dengan ketentuan (Surat Keterangan Perbekel / Lurah, Pertanggung jawaban Perbekel / Lurah)</li> -->
                                     <li>Untuk mempercepat proses dan memiminalisir kegagalan proses unggah, pastikan file yang diunggah berisi max. 500 row perfilenya</li>
                                     <li>File yang sebelumnya pernah diunggah, jangan diunggah lagi kecuali file tidak valid yang sudah diperbaiki atau diganti datanya</li>
-                                    <li>Dengan ini, maka usulan yang tidak memenuhi syarat tersebut akan direject dan Pemda diminta untuk memperbaiki dan mengupload ulang</li>
+                                    <li>Dengan ini, maka usulan yang tidak memenuhi syarat tersebut akan direject dan Desa / Kelurahan diminta untuk memperbaiki dan mengupload ulang</li>
                                     <li>Download Template Usulan <a href="/asset/TEMPLATE USULAN PPKS V.1.xlsx"><button class="btn btn-warning">Template</button></a></li>
 
                                 </div>

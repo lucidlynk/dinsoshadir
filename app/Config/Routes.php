@@ -49,8 +49,9 @@ $routes->group('ppks',['filter' => 'role:admin,user'], function($routes) {
     $routes->get('/', 'Ppks::index');
     $routes->get('data', 'Ppks::data');
     $routes->get('tampil', 'Ppks::tampil');
-    $routes->get('rekap', 'Ppks::rekap');
 });
+$routes->get('/ppks/rekap', 'Ppks::index',['filter'=>'role:admin']);
+$routes->get('/ppks/rekap/index', 'Ppks::index',['filter'=>'role:admin']);
 
 
 /*

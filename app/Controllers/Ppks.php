@@ -75,13 +75,13 @@ class Ppks extends BaseController
             if($x==0){
                 continue;
             }
-
+            $idppks=$this->request->getPost('ppks');
             //skip jika ada data yang sama
             $nik = $this->ppksModel->cekdata($excel['1']);
             if (empty($nik)) {
                 $nik['nik']='';
             }
-            if ($excel['1'] == $nik['nik']) {
+            if ($excel['1'] == $nik['nik'] AND $idppks == $nik['id_pmks']) {
                 $dataGagal++;         
                 continue;
             }
@@ -107,7 +107,7 @@ class Ppks extends BaseController
             }
             
         }
-        session()->setFlashdata('pesan',$dataBerhasil.' Data berhasil ditambahkan');
+        session()->setFlashdata('pesan',$dataBerhasil.' Data berhasil ditambahkan, '.$dataGagal.' Data gagal');
         return redirect()->to('ppks/index');
     }
 

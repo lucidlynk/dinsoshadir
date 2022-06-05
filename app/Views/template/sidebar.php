@@ -58,7 +58,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fas fa-address-card"></i>
                     <span>KIS</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
@@ -86,7 +86,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fab fa-accessible-icon"></i>
                     <span>PPKS</span>
                 </a>
                 <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities"
@@ -95,7 +95,9 @@
                         <h6 class="collapse-header">PPKS:</h6>
                         <a class="collapse-item" href="/ppks/data/">Data PPKS</a>
                         <a class="collapse-item" href="<?= base_url('/ppks'); ?>">Data Usulan</a>
+                        <?php if(in_groups('admin')): ?>
                         <a class="collapse-item" href="<?= base_url('/ppks/rekap'); ?>">Rekap Data PPKS</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </li>
