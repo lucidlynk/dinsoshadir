@@ -77,3 +77,86 @@ $(document).on("click", "#btn-sub", function (e) {
     }
   });
 });
+
+//create function active menu sidebar in class nav-item active
+$(document).ready(function () {
+  var url = window.location;
+  $("ul li.nav-item a")
+    .filter(function () {
+      // alert(this.href);
+      return this.href == url;
+    })
+    .parent()
+    .addClass("active");
+  $("ul li.nav-item #collapseTwo a")
+    .filter(function () {
+      // alert(this.href);
+      return this.href == url;
+    })
+    .addClass("active");
+  $("ul li.nav-item #collapseTwo a")
+    .filter(function () {
+      // alert(this.href);
+      return this.href == url;
+    })
+    .parent()
+    .parent()
+    .parent()
+    .addClass("active");
+  $("ul li.nav-item #collapseTwo a")
+    .filter(function () {
+      // alert(this.href);
+      return this.href == url;
+    })
+    .parent()
+    .parent()
+    .addClass("show");
+  $("ul li.nav-item #collapseUtilities a")
+    .filter(function () {
+      // alert(this.href);
+      return this.href == url;
+    })
+    .addClass("active");
+  $("ul li.nav-item #collapseUtilities a")
+    .filter(function () {
+      // alert(this.href);
+      return this.href == url;
+    })
+    .parent()
+    .parent()
+    .parent()
+    .addClass("active");
+
+  $("ul li.nav-item #collapseUtilities a")
+    .filter(function () {
+      // alert(this.href);
+      return this.href == url;
+    })
+    .parent()
+    .parent()
+    .addClass("show");
+  $("ul li.nav-item #collapseUtilities3 a")
+    .filter(function () {
+      // alert(this.href);
+      return this.href == url;
+    })
+    .addClass("active");
+  $("ul li.nav-item #collapseUtilities3 a")
+    .filter(function () {
+      // alert(this.href);
+      return this.href == url;
+    })
+    .parent()
+    .parent()
+    .parent()
+    .addClass("active");
+
+  $("ul li.nav-item #collapseUtilities3 a")
+    .filter(function () {
+      // alert(this.href);
+      return this.href == url;
+    })
+    .parent()
+    .parent()
+    .addClass("show");
+}); // end function active menu sidebar in class nav-item active
