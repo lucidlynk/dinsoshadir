@@ -161,7 +161,7 @@ class Kis extends BaseController
         
         if (user()->id==8) {
             //fungsi untuk deleteall berdasarkan lampiran berkas
-            $q = $this->db->query("SELECT DISTINCT berkas,usul_kis.created_at AS pengajuan, COUNT(id_usul) AS jml, username FROM usul_kis INNER JOIN users ON usul_kis.userid=users.id GROUP BY berkas ORDER BY usul_kis.created_at DESC  LIMIT 0, 5;");
+            $q = $this->db->query("SELECT DISTINCT berkas,usul_kis.created_at AS pengajuan, COUNT(id_usul) AS jml, username FROM usul_kis INNER JOIN users ON usul_kis.userid=users.id GROUP BY berkas ORDER BY usul_kis.created_at DESC  LIMIT 0, 10;");
             $data['tampilhapus'] = $q->getResultArray();
             //tampilan datatable
             $this->builder->select('id_usul,usul_kis.userid as uid,username,noka,kk,nik,nama,pisat,tmp_lahir,tgl_lahir,jk,usul_kis.status as stts,alamat,kd_pos,kecamatan,desa,ket,file,berkas,usulid');
@@ -172,7 +172,7 @@ class Kis extends BaseController
         }else{
             //fungsi untuk deleteall berdasarkan lampiran berkas
             $idk=user()->id;
-            $q = $this->db->query("SELECT DISTINCT berkas,usul_kis.created_at AS pengajuan, COUNT(id_usul) AS jml FROM usul_kis INNER JOIN users ON usul_kis.userid=users.id WHERE users.id={$idk} GROUP BY berkas ORDER BY usul_kis.created_at DESC LIMIT 0, 5;");
+            $q = $this->db->query("SELECT DISTINCT berkas,usul_kis.created_at AS pengajuan, COUNT(id_usul) AS jml FROM usul_kis INNER JOIN users ON usul_kis.userid=users.id WHERE users.id={$idk} GROUP BY berkas ORDER BY usul_kis.created_at DESC LIMIT 0, 10;");
             $data['tampilhapus'] = $q->getResultArray();
             //tampilan datatable
             $this->builder->select('id_usul,usul_kis.userid as uid,username,noka,kk,nik,nama,pisat,tmp_lahir,tgl_lahir,jk,usul_kis.status as stts,alamat,kd_pos,kecamatan,desa,ket,file,berkas,usulid');
