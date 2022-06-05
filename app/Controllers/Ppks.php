@@ -68,6 +68,9 @@ class Ppks extends BaseController
         $dataGagal = 0;
         $dataBerhasil = 0;
         foreach ($sheet as $x => $excel) {
+            //change tgl to date
+            $excel[4] = date('Y-m-d', strtotime($excel[4]));
+
             //skip judul tabel
             if($x==0){
                 continue;

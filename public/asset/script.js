@@ -160,3 +160,42 @@ $(document).ready(function () {
     .parent()
     .addClass("show");
 }); // end function active menu sidebar in class nav-item active
+
+//create chart bar from database
+$(document).ready(function () {
+  $.ajax({
+    url: "chart_bar",
+    method: "GET",
+    success: function (data) {
+      var nama = [];
+      var jumlah = [];
+
+      for (var i in data) {
+        nama.push(data[i].nama);
+        jumlah.push(data[i].jumlah);
+      }
+
+      var chartdata = {
+        labels: nama,
+        datasets: [
+          {
+            label: "Jumlah Usulan KIS",
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(255, 99, 132, 0.4)",
+            hoverBorderColor: "rgba(255, 99, 132, 1)",
+            data: jumlah,
+          },
+        ],
+      };
+
+      var ctx = $("#mycanvas");
+
+      var barGraph = new Chart(ctx, {
+        type: "bar",
+        data: chartdata,
+      });
+    },
+  });
+}); // end function create chart bar from database
