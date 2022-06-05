@@ -51,7 +51,7 @@ class PmksModel extends Model
     public function getPmksByRekap()
     {
         $this->db      = \Config\Database::connect();
-        $q = $this->db->query("SELECT nama_pmks,(SELECT COUNT(nama) FROM ppks WHERE ppks.id_pmks=pmks.id_pmks) AS jumlah, (SELECT COUNT(jk) FROM ppks WHERE ppks.id_pmks=pmks.id_pmks AND ppks.jk='1') AS Pria, (SELECT COUNT(jk) FROM ppks WHERE ppks.id_pmks=pmks.id_pmks AND ppks.jk='2') AS Wanita FROM pmks LEFT JOIN ppks ON ppks.id_pmks=pmks.id_pmks;");
+        $q = $this->db->query("SELECT DISTINCT(nama_pmks),(SELECT COUNT(nama) FROM ppks WHERE ppks.id_pmks=pmks.id_pmks) AS jumlah, (SELECT COUNT(jk) FROM ppks WHERE ppks.id_pmks=pmks.id_pmks AND ppks.jk='1') AS Pria, (SELECT COUNT(jk) FROM ppks WHERE ppks.id_pmks=pmks.id_pmks AND ppks.jk='2') AS Wanita FROM pmks LEFT JOIN ppks ON ppks.id_pmks=pmks.id_pmks;");
         $rekap = $q->getResultArray();
         return $rekap;
     }
