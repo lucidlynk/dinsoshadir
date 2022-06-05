@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>Dinsos Hadir-PuskesosCGT</title>
+    <link rel="shortcut icon" href="/img/buleleng.png">
 
     <!-- Custom fonts for this template-->
     <link href="startbootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
