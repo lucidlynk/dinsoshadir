@@ -145,6 +145,7 @@ class Ppks extends BaseController
             $sheet->setCellValue('I' . $i, $d['desa']);
             $sheet->setCellValue('J' . $i, $d['nama_pmks']);
             $i++;
+            $no++;
         }
         $writer = new Xlsx($spreadsheet);
         $filename = 'Data_ppks'.date('Y-m-d_H-i-s').'.xlsx';

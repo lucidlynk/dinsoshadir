@@ -199,3 +199,7 @@ $(document).ready(function () {
     },
   });
 }); // end function create chart bar from database
+
+const judul = document.getElementById("dataTable");
+judul.style.fontSize = "15px";
+// judul.style.color = "red";

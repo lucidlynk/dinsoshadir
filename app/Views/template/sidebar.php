@@ -38,7 +38,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data User:</h6>
                         <a class="collapse-item" href="/user/profile">Profile</a>
+                        <?php if( in_groups('admin')||in_groups('admin')): ?>
                         <a class="collapse-item" href="/user/edit/<?= user()->id; ?>">Edit Profile</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </li>

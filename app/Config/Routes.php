@@ -33,8 +33,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/register', 'Home::index');
-$routes->get('/dashboard', 'dashboard::index',['filter'=>'role:admin,user']);
-$routes->get('/dashboard/index', 'dashboard::index',['filter'=>'role:admin,user']);
+$routes->get('/dashboard', 'Dashboard::index',['filter'=>'role:admin,user']);
+$routes->get('/dashboard/index', 'Dashboard::index',['filter'=>'role:admin,user']);
 $routes->get('/adm', 'Adm::index',['filter'=>'role:admin']);
 $routes->get('/adm/index', 'Adm::index',['filter'=>'role:admin']);
 // create routes group for kis
@@ -50,8 +50,8 @@ $routes->group('ppks',['filter' => 'role:admin,user'], function($routes) {
     $routes->get('data', 'Ppks::data');
     $routes->get('tampil', 'Ppks::tampil');
 });
-$routes->get('/ppks/rekap', 'Ppks::index',['filter'=>'role:admin']);
-$routes->get('/ppks/rekap/index', 'Ppks::index',['filter'=>'role:admin']);
+$routes->get('/ppks/rekap', 'Ppks::rekap',['filter'=>'role:admin']);
+$routes->get('/ppks/rekap/index', 'Ppks::rekap',['filter'=>'role:admin']);
 
 
 /*

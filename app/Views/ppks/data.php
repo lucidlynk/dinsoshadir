@@ -98,6 +98,8 @@
                                     <tbody>
                                         <?php if($tampildata != ''): ?>
                                         <?php foreach ($tampildata as $d ) :?>
+                                        <!-- change tgl_lahir to date format -->
+                                        <?php $tgl_lahir = date('d/m/Y', strtotime($d->tgl_lahir)); ?>
                                         <tr>
                                             <!-- <td>
                                                 <center>
@@ -108,7 +110,7 @@
                                             <td><?= $d->nik; ?></td>
                                             <td><?= $d->nama; ?></td>
                                             <td><?= $d->tmp_lahir; ?></td>
-                                            <td><?= $d->tgl_lahir; ?></td>
+                                            <td><?= $tgl_lahir; ?></td>
                                             <td><?= $d->jk; ?></td>
                                             <td><?= $d->alamat; ?></td>
                                             <td><?= $d->kecamatan; ?></td>
