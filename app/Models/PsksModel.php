@@ -51,7 +51,7 @@ class PsksModel extends Model
     public function cekdata($nik){
         return 
         // $this->db->table('tb_psks')->where('nik',$nik)
-        $this->db->table('tb_psks')->where($nik)
+        $this->db->table('tb_ppks')->where($nik)
         ->get()->getRowArray();
    }
 }

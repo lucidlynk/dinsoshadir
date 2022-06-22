@@ -77,11 +77,18 @@ class Ppks extends BaseController
             }
             $idppks=$this->request->getPost('ppks');
             //skip jika ada data yang sama
-            $nik = $this->ppksModel->cekdata($excel['1']);
+            $array = array('nik' => $excel['1'], 'id_pmks' => $idppks);
+            // $nik = $this->ppksModel->cekdata($excel['1']);
+            $nik = $this->ppksModel->cekdata($array);
+            if (isset($nik)) {
+                $dataPPKS=$nik['id_pmks'];
+            }else{
+                $dataPPKS='';
+            }
             if (empty($nik)) {
                 $nik['nik']='';
             }
-            if ($excel['1'] == $nik['nik'] AND $idppks == $nik['id_pmks']) {
+            if ($excel['1'] == $nik['nik'] AND $idppks == $dataPPKS) {
                 $dataGagal++;         
                 continue;
             }

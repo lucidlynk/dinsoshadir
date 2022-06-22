@@ -50,8 +50,10 @@ class PpksModel extends Model
         }
         return $this->where(['id'=>$id])->first();
     }
-    public function cekdata($nik){
-        return $this->db->table('ppks')->where('nik',$nik)
-           ->get()->getRowArray();
+    public function cekdata($array){
+        return
+        // return $this->db->table('ppks')->where('nik',$nik)
+        $this->db->table('ppks')->where($array)
+        ->get()->getRowArray();
    }
 }
