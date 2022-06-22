@@ -286,7 +286,7 @@ class Ppks extends BaseController
     {
         $ppks=$this->request->getVar('ppks');
         $data=[
-            'tittle' => 'Usulan KIS',
+            'tittle' => 'Data PPKS',
             'tampil' => $this->pmksModel->findAll()
         ];
         

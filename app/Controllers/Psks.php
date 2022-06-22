@@ -135,11 +135,11 @@ class Psks extends BaseController
         $sheet->setCellValue('G1', 'Alamat');
         $sheet->setCellValue('H1', 'Kecamatan');
         $sheet->setCellValue('I1', 'Desa');
-        $sheet->setCellValue('J1', 'Jenis PPKS');
+        $sheet->setCellValue('J1', 'Jenis PSKS');
 
         $sheet->getStyle('A1:J1')->getFont()->setBold(true);
 
-        $data = $this->pmksModel->getDownload();
+        $data = $this->ListPsks->getDownload();
         $no = 1;
         $i = 2;
         foreach ($data as $d) {
@@ -152,17 +152,17 @@ class Psks extends BaseController
             $sheet->setCellValue('G' . $i, $d['alamat']);
             $sheet->setCellValue('H' . $i, $d['kecamatan']);
             $sheet->setCellValue('I' . $i, $d['desa']);
-            $sheet->setCellValue('J' . $i, $d['nama_pmks']);
+            $sheet->setCellValue('J' . $i, $d['nama_psks']);
             $i++;
             $no++;
         }
         $writer = new Xlsx($spreadsheet);
-        $filename = 'Data_ppks'.date('Y-m-d_H-i-s').'.xlsx';
+        $filename = 'Data_psks'.date('Y-m-d_H-i-s').'.xlsx';
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment;filename="'. $filename .'"');
         header('Cache-Control: max-age=0');
         $writer->save('php://output');
-        redirect()->to('ppks/rekap');
+        redirect()->to('psks/rekap');
     }
 
     
@@ -276,34 +276,34 @@ class Psks extends BaseController
     public function data()
     {
         $data=[
-            'tittle' => 'Data PPKS',
+            'tittle' => 'Data PSKS',
             'tampildata' => '',
-            'tampil' => $this->pmksModel->getPmks(),
+            'tampil' => $this->ListPsks->getPsks(),
             'validation'=> \Config\Services::validation() 
         ];
-        return view('ppks/data',$data);
+        return view('psks/data',$data);
     }
 
     public function tampil()
     {
-        $ppks=$this->request->getVar('ppks');
+        $psks=$this->request->getVar('psks');
         $data=[
-            'tittle' => 'Usulan KIS',
-            'tampil' => $this->pmksModel->findAll()
+            'tittle' => 'Data PSKS',
+            'tampil' => $this->ListPsks->findAll()
         ];
         
-        if ($ppks) {
+        if ($psks) {
                 
         if (user()->id==8) {
             //fungsi untuk deleteall berdasarkan lampiran berkas
             // $q = $this->db->query("SELECT DISTINCT berkas,usul_kis.created_at AS pengajuan, COUNT(id_usul) AS jml, username FROM usul_kis INNER JOIN users ON usul_kis.userid=users.id GROUP BY berkas ORDER BY usul_kis.created_at DESC;");
             // $data['tampilhapus'] = $q->getResultArray();
             //tampilan datatable
-            $this->builder->select('id_ppks,nik,nama,tmp_lahir,tgl_lahir,jk,alamat,kecamatan,desa,nama_pmks,username,tahun');
-            $this->builder->join('users', 'ppks.data_user = users.id');
-            $this->builder->join('pmks', 'ppks.id_pmks = pmks.id_pmks');
-            if ($ppks!=0) {
-                $this->builder->where('ppks.id_pmks',$ppks);
+            $this->builder->select('id_pks,nik,nama,tmp_lahir,tgl_lahir,jk,alamat,kecamatan,desa,nama_psks,username,tahun');
+            $this->builder->join('users', 'tb_psks.data_user = users.id');
+            $this->builder->join('psks', 'tb_psks.id_psks = psks.id_psks');
+            if ($psks!=0) {
+                $this->builder->where('tb_psks.id_psks',$psks);
             }
             
         }else{
@@ -315,47 +315,47 @@ class Psks extends BaseController
             $this->builder->select('id_ppks,nik,nama,tmp_lahir,tgl_lahir,jk,alamat,kecamatan,desa,nama_pmks,username,tahun');
             $this->builder->join('users', 'ppks.data_user = users.id');
             $this->builder->join('pmks', 'ppks.id_pmks = pmks.id_pmks');
-            if ($ppks!=0) {
-                $this->builder->where('ppks.id_pmks',$ppks);
+            if ($psks!=0) {
+                $this->builder->where('tb_psks.id_psks',$psks);
             }
-            $this->builder->where('ppks.data_user',user()->id);
+            $this->builder->where('tb_psks.data_user',user()->id);
         }
         $query = $this->builder->get();
         $data['tampildata']= $query->getResult();
         }else {
             $data['tampildata']= '';
         }
-        return view('ppks/data',$data);
+        return view('psks/data',$data);
     }
 
     public function update() {
         // $id= $this->request->getPost('tgl_lahir');
         // dd($id);
-        $this->ppksModel->save([
-            'id_ppks' => $this->request->getPost('id'),
+        $this->psksModel->save([
+            'id_pks' => $this->request->getPost('id'),
             'nik' => $this->request->getPost('nik'),
             'nama' => $this->request->getPost('nama'),
             'tmp_lahir' => $this->request->getPost('tmp_lahir'),
             'tgl_lahir' => $this->request->getPost('tgl_lahir'),
         ]); 
         session()->setFlashdata('pesan','Data berhasil diubah');
-        return redirect()->to('/ppks/data');
+        return redirect()->to('/psks/data');
     }
     public function delete($id)
     {
-        $this->builder->delete(['id_ppks' => $id]);
+        $this->builder->delete(['id_pks' => $id]);
         session()->setFlashdata('pesan','Data berhasil dihapus');
-        return redirect()->to('/ppks/data');
+        return redirect()->to('/psks/data');
     }
 
     public function rekap()
     {
         $data=[
-            'tittle' => 'Rekap Data PPKS',
-            'tampildata' => $this->pmksModel->getPmksByRekap(),
+            'tittle' => 'Rekap Data PSKS',
+            'tampildata' => $this->ListPsks->getPsksByRekap(),
             'validation'=> \Config\Services::validation() 
         ];
-        return view('ppks/rekap',$data);
+        return view('psks/rekap',$data);
     }
 
 }

@@ -93,6 +93,7 @@ class Kis extends BaseController
         // $dataGagal = 0;
         $dataBerhasil = 0;
         foreach ($sheet as $x => $excel) {
+            $excel[7] = date('Y-m-d', strtotime($excel[7]));
             //skip judul tabel
             if($x==0){
                 continue;
