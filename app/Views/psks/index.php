@@ -51,16 +51,16 @@
                             <?php endif; ?>
                             <div class="flash-data" data-flashdata="<?= $flash??""; ?>"></div>
                             <?php 
-                            echo form_open_multipart('ppks/import');
+                            echo form_open_multipart('psks/import');
                             ?>
                             <?= csrf_field(); ?>
                             <!-- //creat combobox with boostra[select 3] -->
                             <div class="form-group row">
-                                <label for="ppks" class="col-sm-2 col-form-label">Pilih Jenis PPKS</label>
+                                <label for="psks" class="col-sm-2 col-form-label">Pilih Jenis PSKS</label>
                                 <div class="mb-3 col-6">
-                                    <select class="form-control" name="ppks" id="ppks">
-                                        <?php foreach($pmks as $t): ?>
-                                            <option value="<?= $t['id_pmks']; ?>"><?= $t['nama_pmks']; ?></option>
+                                    <select class="form-control" name="psks" id="psks">
+                                        <?php foreach($psks as $t): ?>
+                                            <option value="<?= $t['id_psks']; ?>"><?= $t['nama_psks']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

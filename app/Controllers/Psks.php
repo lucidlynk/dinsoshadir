@@ -3,9 +3,10 @@
 namespace App\Controllers;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use App\Models\PpksModel;
-use App\Models\PmksModel;
+use App\Models\ListPsks;
+use App\Models\PsksModel;
 use Kint\Renderer\Renderer;
+use phpDocumentor\Reflection\Types\Null_;
 
 class Psks extends BaseController
 {
@@ -13,17 +14,17 @@ class Psks extends BaseController
     public function __construct()
     {
         helper('form');
-        $this->pmksModel = new PmksModel();
-        $this->ppksModel = new PpksModel();
+        $this->ListPsks = new ListPsks();
+        $this->psksModel = new PsksModel();
         $this->db      = \Config\Database::connect();
-        $this->builder = $this->db->table('ppks');
+        $this->builder = $this->db->table('tb_psks');
     }
 
     public function index()
     {
         $data=[
             'tittle' => 'PPKS',
-            'pmks' => $this->pmksModel->getPmks(),
+            'psks' => $this->ListPsks->getPsks(),
             'validation'=> \Config\Services::validation() //panggil validation
         ];
         return view('psks/index',$data);
@@ -75,13 +76,21 @@ class Psks extends BaseController
             if($x==0){
                 continue;
             }
-            $idppks=$this->request->getPost('ppks');
+            $idpsks=$this->request->getPost('psks');
             //skip jika ada data yang sama
-            $nik = $this->ppksModel->cekdata($excel['1']);
+            $array = array('nik' => $excel['1'], 'id_psks' => $idpsks);
+            // $nik = $this->psksModel->cekdata($excel['1']);
+            $nik = $this->psksModel->cekdata($array);
+            if (isset($nik)) {
+                $dataPSKS=$nik['id_psks'];
+            }else{
+                $dataPSKS='';
+            }
+            
             if (empty($nik)) {
                 $nik['nik']='';
             }
-            if ($excel['1'] == $nik['nik'] AND $idppks == $nik['id_pmks']) {
+            if ($excel['1'] == $nik['nik'] AND $idpsks == $dataPSKS) {
                 $dataGagal++;         
                 continue;
             }
@@ -95,20 +104,20 @@ class Psks extends BaseController
                 'alamat' => $excel['6'],
                 'kecamatan' => $excel['7'],
                 'desa' => $excel['8'],
-                'id_pmks' => $this->request->getPost('ppks'),
+                'id_psks' => $this->request->getPost('psks'),
                 'data_user' => user()->id,
                 'tahun' => $this->request->getPost('tahun')
             ];
             if($data['nik']==''){
                 continue;
             }else{
-                $this->ppksModel->save($data);
+                $this->psksModel->save($data);
                 $dataBerhasil++;
             }
             
         }
         session()->setFlashdata('pesan',$dataBerhasil.' Data berhasil ditambahkan, '.$dataGagal.' Data gagal');
-        return redirect()->to('ppks/index');
+        return redirect()->to('psks/index');
     }
 
 
