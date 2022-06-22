@@ -82,6 +82,7 @@ chart.render();
           </button>
 
           <!-- lOGO TEXT HERE -->
+          <a href="index.html" class="navbar-brand"><img src="/dhasa/images/logo_buleleng.png" width="45px" /></a>
           <a href="index.html" class="navbar-brand">Puskessos CGT <br>Dinsos Hadir </a>
         </div>
 
@@ -89,7 +90,7 @@ chart.render();
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-nav-first">
             <li><a href="#home" class="smoothScroll">Home</a></li>
-            <li><a href="#about" class="smoothScroll">About</a></li>
+            <!-- <li><a href="#about" class="smoothScroll">About</a></li> -->
             <!--<li><a href="#team" class="smoothScroll">Chef</a></li>-->
             <!--<li><a href="#menu" class="smoothScroll">Activity</a></li>-->
             <!--<li><a href="#contact" class="smoothScroll">Contact</a></li>-->
@@ -103,7 +104,7 @@ chart.render();
               <a href="https://linjamsos.my.id/dtks"><i class="fa fa-file-text"></i> DTKS</a>
             </li>
             <li>
-              <a href="https://linjamsos.my.id/dis"><i class="fa fa-wheelchair"></i> Disabilitas</a>
+              <a href="/disabilitas"><i class="fa fa-wheelchair"></i> Disabilitas</a>
             </li>
             <li>
               <a href="https://cekbansos.linjamsos.my.id/cek.php"><i class="fa fa-file-text"></i> Cek Bansos</a>
@@ -179,7 +180,7 @@ chart.render();
             <p>Program Sembako</p>
           </div>
           <div class="col-md-2">
-            <img src="/dhasa//pkh.png" style="height: 100px" alt="" />
+            <img src="/dhasa/images/pkh.png" style="height: 100px" alt="" />
             <h4>29.791 Keluarga</h4>
             <p>Program Keluarga Harapan</p>
           </div>
