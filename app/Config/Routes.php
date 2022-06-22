@@ -39,7 +39,7 @@ $routes->get('/adm', 'Adm::index',['filter'=>'role:admin']);
 $routes->get('/adm/index', 'Adm::index',['filter'=>'role:admin']);
 // create routes group for kis
 $routes->group('kis',['filter' => 'role:admin,user'], function($routes) {
-    $routes->get('/', 'Kis::index');
+    //$routes->get('/', 'Kis::index');
     $routes->get('input', 'Kis::input');
     $routes->get('usul', 'Kis::usul');
     $routes->get('cek_usul', 'Kis::cek_usul');
@@ -52,7 +52,6 @@ $routes->group('ppks',['filter' => 'role:admin,user'], function($routes) {
 });
 $routes->get('/ppks/rekap', 'Ppks::rekap',['filter'=>'role:admin']);
 $routes->get('/ppks/rekap/index', 'Ppks::rekap',['filter'=>'role:admin']);
-
 
 /*
  * --------------------------------------------------------------------

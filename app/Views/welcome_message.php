@@ -97,7 +97,7 @@ chart.render();
 
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="https://linjamsos.my.id/pbi"><i class="fa fa-id-card-o"></i> KIS APBD</a>
+              <a href="/kis"><i class="fa fa-id-card-o"></i> KIS APBD</a>
             </li>
             <li>
               <a href="https://linjamsos.my.id/dtks"><i class="fa fa-file-text"></i> DTKS</a>
