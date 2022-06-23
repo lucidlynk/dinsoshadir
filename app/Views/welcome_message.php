@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Puskessos CGT Dinsos Hadir</title>
+    <title><?= $tittle ?? 'Kosong'; ?></title>
     <link rel="shortcut icon" href="images/hadir.png">
     <!-- 
  
@@ -45,8 +45,8 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		legendMarkerColor: "grey",
 		legendText: "Desember 2021",
 		dataPoints: [      
-			{ y: 274492, label: "PBI APBN" },
-			{ y: 243390,  label: "PBI APBD" },
+			{ y: <?= $kepesertaan->apbn; ?>, label: "PBI APBN" },
+			{ y: <?= $kepesertaan->apbd; ?>,  label: "PBI APBD" },
 			{ y: 164709,  label: "PPU" },
 			{ y: 78354,  label: "PBPU" },
 			{ y: 10984,  label: "PB" }
@@ -161,33 +161,41 @@ chart.render();
       </div>
     </section>
 	<!--info Panel-->
+  <?php 
+  $apbd=number_format($kepesertaan->apbd,0,',','.');
+  $apbn=number_format($kepesertaan->apbn,0,',','.');
+  $sembako=number_format($kepesertaan->sembako,0,',','.');
+  $pkh=number_format($kepesertaan->pkh,0,',','.');
+  $dtks_jiwa=number_format($kepesertaan->dtks_jiwa,0,',','.');
+  $dtks_keluarga=number_format($kepesertaan->dtks_keluarga,0,',','.');
+  ?>
     <section id="info-panel">
       <div class="container">
         <div class="row text-center">
           <div class="col-md-2">
             <img src="/dhasa/images/kis2.png" style="height: 100px" alt="" />
-            <h4>143.119 Jiwa</h4>
+            <h4><?= $apbd; ?> Jiwa</h4>
             <p>Penerima Bantuan Iuran (APBD)</p>
           </div>
           <div class="col-md-2">
             <img src="/dhasa/images/pbi.png" style="height: 100px" alt="" />
-            <h4>218.362 Jiwa</h4>
+            <h4><?= $apbn; ?> Jiwa</h4>
             <p>Penerima Bantuan Iuran (APBN)</p>
           </div>
           <div class="col-md-2">
             <img src="/dhasa/images/bpnt.png" style="height: 100px" alt="" />
-            <h4>43.616 Keluarga</h4>
+            <h4><?= $sembako; ?> Keluarga</h4>
             <p>Program Sembako</p>
           </div>
           <div class="col-md-2">
             <img src="/dhasa/images/pkh.png" style="height: 100px" alt="" />
-            <h4>29.791 Keluarga</h4>
+            <h4><?= $pkh; ?> Keluarga</h4>
             <p>Program Keluarga Harapan</p>
           </div>
           <div class="col-md-4">
             <img src="/dhasa/images/dtks.png" style="height: 100px" alt="" />
-            <h4>355.558 Jiwa</h4>
-            <h4>114.123 Keluarga</h4>
+            <h4><?= $dtks_jiwa; ?> Jiwa</h4>
+            <h4><?= $dtks_keluarga; ?> Keluarga</h4>
             <p>Data Terpadu Kesejahteraan Sosial</p>
           </div>
         </div>
@@ -195,9 +203,9 @@ chart.render();
     </section>
     <!--info Panel-->
     
-    <!--info Chart-->
-    <!--
-    <section id="info-panel" style="margin-top:-50px;">
+    <!-- info Chart-->
+    
+    <!-- <section id="info-panel" style="margin-top:-50px;">
       <div class="container">
         <div class="row text-center">
           <div class="col-md-10 col-md-offset-1">
@@ -205,8 +213,8 @@ chart.render();
           </div>
         </div>
       </div>
-    </section>-->
-    <!--info Chart-->
+    </section> -->
+    <!--info Chart -->
     
     <!-- ABOUT -->
     <section id="about" data-stellar-background-ratio="0.5">
@@ -215,12 +223,12 @@ chart.render();
           <div class="col-md-6 col-sm-12">
             <div class="about-info">
               <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
-                <h4>Sejarah DTKS</h4>
-                <h2>DTKS sebagai dasar masyarakat menjadi calon penerima manfaat</h2>
+                <h4><?= $headline->sub_judul; ?></h4>
+                <h2><?= $headline->judul; ?></h2>
               </div>
 
               <div class="wow fadeInUp" data-wow-delay="0.4s">
-                <p>
+                <!-- <p>
                   Pembangunan satu basis data terpadu untuk penetapan sasaran program program perlindungan sosial/penanganan kemiskinan di Indonesia diawali dengan kegiatan Pendataan Sosial Ekonomi (PSE) tahun 2005 dilaksanakan oleh Badan
                   Pusat Statistik (BPS) yang merupakan sensus kemiskinan pertama di Indonesia. Data Terpadu hasil PSE 2005 ini digunakan untuk Bantuan Langsung Tunai (BLT) dan Program Keluarga Harapan (PKH). PKH dilaksanakan mulai tahun
                   2007 dengan lokasi sebagai pilot project di 7 Provinsi dengan sasaran Rumah Tangga Sangat Miskin (RTSM) sebanyak 500.000 RTSM. Kemudian setiap tiga tahun data tersebut dilakukan update dengan nama Pendataan Program
@@ -235,14 +243,15 @@ chart.render();
                 <p>
                   Selanjutnya Pemutakhiran/Verifikasi dan Validasi DTKS sesuai dengan amanat UU Nomor 13 Tahun 2011 tentang Penanganan Fakir Miskin, UU nomor 23 tahun 2014 tentang pemerintah daerah, dan Peraturan Menteri Sosial Nomor 28
                   Tahun 2017 tentang Pedoman Umum Verifikasi dan Validasi DT-PFM dan OTM menjadi tanggungjawab Pemerintah Daerah Kabupaten/Kota dengan menggunakan Aplikasi SIKS-NG.
-                </p>
+                </p> -->
+                <?= $headline->narasi; ?>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-sm-12">
             <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
-              <img src="/dhasa/images/about-image.jpg" class="img-responsive" alt="" />
+              <img src="/img/<?= $headline->image; ?>" class="img-responsive" alt="" />
             </div>
           </div>
         </div>

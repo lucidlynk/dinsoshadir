@@ -10,7 +10,7 @@
             
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
+            <?php if( in_groups('admin') or in_groups('user')): ?>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="/dashboard">
@@ -103,6 +103,25 @@
                     </div>
                 </div>
             </li>
+            <!-- PSKS -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities4"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fab fa-accessible-icon"></i>
+                    <span>PSKS</span>
+                </a>
+                <div id="collapseUtilities4" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">PSKS:</h6>
+                        <a class="collapse-item" href="/psks/data/">Data PPKS</a>
+                        <a class="collapse-item" href="<?= base_url('/psks'); ?>">Data Usulan</a>
+                        <?php if(in_groups('admin')): ?>
+                        <a class="collapse-item" href="<?= base_url('/psks/rekap'); ?>">Rekap Data PPKS</a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -116,6 +135,7 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
+            <?php endif; ?>
             
 
         </ul>
