@@ -416,6 +416,9 @@ chart.render();
                 </div>
               </a>
             </div>
+            <!-- <video width="400px" height="400px"  controls>
+              <source src="/video/VID-20220624-WA0016.mp4" class="img-responsive mt-50" type="video/mp4">
+            </video> -->
           </div>
 
           <div class="col-md-4 col-sm-6">
@@ -477,6 +480,27 @@ chart.render();
         </div>
       </div>
     </section>
+
+
+    <!-- VIDEO -->
+    <!-- <section id="menu" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+              <h2>KEGIATAN</h2>
+              <h4>Dinsos Hadir</h4>
+            </div>
+            <video width="400px" height="400px"  controls>
+              <source src="/video/VID-20220624-WA0016.mp4" class="img-responsive mt-50" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div> 
+      </div>
+    </section>  -->
+    <!-- AKHIR VIDEO -->
 
     <!-- TESTIMONIAL -->
     <section id="testimonial" data-stellar-background-ratio="0.5">

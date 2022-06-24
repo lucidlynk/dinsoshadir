@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template-->
     <link href="/startbootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+	<script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
 
 
     <!-- chart -->
