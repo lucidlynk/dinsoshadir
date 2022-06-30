@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title><?= $tittle ?? 'Kosong'; ?></title>
-    <link rel="shortcut icon" href="images/hadir.png">
+    <link rel="shortcut icon" href="/dhasa/images/logo_buleleng.png">
     <!-- 
  
 Made Budhi Setyawan
