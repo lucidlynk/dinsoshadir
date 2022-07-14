@@ -10,7 +10,7 @@
     <title><?= $tittle ?? 'Kosong'; ?></title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/news/img/favicon.ico" />
+    <link rel="shortcut icon" href="/img/buleleng.png" />
 
     <!-- ICON CSS -->
     <link rel="stylesheet" href="/news/js/font-awesome/css/font-awesome.min.css" />
@@ -40,7 +40,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="https://dinsos.bulelengkab.go.id"><img src="/news/img/Untitled-2.png" class="img-responsive" alt="" /></a>
+              <a class="navbar-brand" href="https://dinsos.bulelengkab.go.id"><img src="/news/img/2222222.png" class="img-responsive" alt="" /></a>
             </div>
             <!-- <div class="search-trigger pull-right"></div>
 
@@ -136,7 +136,7 @@
       <div class="inner-content">
         <div class="container">
           <div class="section-head">
-            <h2>Latest articles</h2>
+            <h2>Articles Dinsos Melawan Lupa</h2>
           </div>
 
           <div class="row">
@@ -157,7 +157,7 @@
                       <h3><a href="<?= $d->link; ?>"><?= $d->judul; ?></a></h3>
                       <div class="meta">
                         <span>by <?= $d->team; ?></span>
-                        <span>on 09 Juli 2022</span>
+                        <span><?= $d->tgl; ?></span>
                         <!-- <span class="comment"><i class="fa fa-comment-o"></i> 1</span> -->
                       </div>
                       <p>
@@ -186,9 +186,9 @@
               <div class="side-widget">
                 <h4>Follow Us</h4>
                 <div class="side-social">
-                  <a href="#"><i class="fa fa-facebook"></i> 2,279 <span>fans</span></a>
-                  <a href="#"><i class="fa fa-twitter"></i> 1,928 <span>followers</span></a>
-                  <a href="#"><i class="fa fa-google-plus"></i> 829 <span>followers</span></a>
+                  <a href="https://www.facebook.com/profile.php?id=100081074663747"><i class="fa fa-facebook"></i> 460 <span>fans</span></a>
+                  <a href="https://twitter.com/HadirDinsos"><i class="fa fa-instagram"></i> 280 <span>followers</span></a>
+                  <a href="https://www.youtube.com/channel/UCtkU8OYKDValfeUJJJGnZQg"><i class="fa fa-youtube-play"></i> 57 <span>followers</span></a>
                 </div>
               </div>
 
@@ -520,7 +520,7 @@
             <div class="row center-content">
               <div class="col-md-2 col-sm-3">
                 <a href="./index.html">
-                  <img src="/news/img/logo-lite.png" class="img-responsive" alt="" />
+                  <img src="/news/img/2222221.png" class="img-responsive" alt="" />
                 </a>
               </div>
               <!-- <div class="col-md-6 col-sm-4">
