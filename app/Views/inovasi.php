@@ -136,7 +136,7 @@
       <div class="inner-content">
         <div class="container">
           <div class="section-head">
-            <h2>Articles Dinsos Melawan Lupa</h2>
+            <h2>Artikel Dinsos Melawan Lupa</h2>
           </div>
 
           <div class="row">
