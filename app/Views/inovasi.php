@@ -157,7 +157,7 @@
                       <h3><a href="<?= $d->link; ?>"><?= $d->judul; ?></a></h3>
                       <div class="meta">
                         <span>by <?= $d->team; ?></span>
-                        <span><?= $d->tgl; ?></span>
+                        <!-- <span><?= $d->tgl; ?></span> -->
                         <!-- <span class="comment"><i class="fa fa-comment-o"></i> 1</span> -->
                       </div>
                       <p>
